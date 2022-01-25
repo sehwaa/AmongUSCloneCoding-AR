@@ -36,11 +36,10 @@ public class MultipleImageTracker : MonoBehaviour
                     GameObject go = Instantiate(imagePrefab, trackedImage.transform.position, trackedImage.transform.rotation);
                     go.transform.SetParent(trackedImage.transform);
 
-                    //if (imageName == "Admin")
-                    //{
-                    //    GameObject cardPrefab = Resources.Load<GameObject>("Card");
-                    //    Instantiate(cardPrefab, cardPrefab.transform.position, cardPrefab.transform.rotation);
-                    //}
+                    if (imageName.Equals("Emergency"))
+                    {
+                        SoundManager.instance.EmergencyPlay();
+                    }
                 }
             }
         }

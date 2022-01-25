@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HintManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class HintManager : MonoBehaviour
     public TextMeshPro hint2;
     public TextMeshPro hint3;
     public TextMeshPro hint4;
+
+    bool sound = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,5 +51,16 @@ public class HintManager : MonoBehaviour
                 }
             }
         }
+
+        //// TODO : 힌트 다 나오면 scene 이동
+        //if (hint1.text == "B" && hint2.text == "L")
+        //{
+        //    StartCoroutine(NextScene());
+        //}
+    }
+
+    IEnumerator NextScene()
+    { 
+        yield return new WaitForSeconds(1);
     }
 }

@@ -21,20 +21,11 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void CardPlay()
+    private void Play(string name)
     {
-        //for (int i = 0; i < audioPlayer.Length; i++)
-        //{
-        //    if (audioPlayer[i].GetComponent<AudioSource>().clip.name.Contains("cardaccept"))
-        //    {
-        //        audioPlayer[i].clip = audioPlayer[i].GetComponent<AudioSource>().clip;
-        //        audioPlayer[i].Play();
-        //        break;
-        //    }
-        //}
         for (int i = 0; i < audioClip.Length; i++)
         {
-            if (audioClip[i].name.Contains("cardaccept"))
+            if (audioClip[i].name.Contains(name))
             {
                 audioPlayer.clip = audioClip[i];
                 audioPlayer.Play();
@@ -43,23 +34,27 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void CardPlay()
+    {
+        Play("Complete");
+    }
+
     public void WeaponShootPlay()
     {
-        for (int i = 0; i < audioClip.Length; i++)
-        {
-            if (audioClip[i].name.Contains("weaponfire"))
-            {
-                audioPlayer.clip = audioClip[i];
-                audioPlayer.Play();
-                break;
-            }
-            //print(audioPlayer[i].GetComponent<AudioSource>().clip.name);
-            //if (audioPlayer[i].GetComponent<AudioSource>().clip.name.Contains("weaponfire"))
-            //{
-            //    audioPlayer[i].clip = audioPlayer[i].GetComponent<AudioSource>().clip;
-            //    audioPlayer[i].Play();
-            //    break;
-            //}
-        }
+        Play("weaponfire");
+    }
+
+    public void EmergencyPlay()
+    {
+        Play("emergencymeeting");
+    }
+
+    public void ImposterKillPlay()
+    {
+        Play("kill");
+    }
+    public void VictoryCrewPlay()
+    {
+        Play("crew");
     }
 }
